@@ -3,9 +3,7 @@ import { s, vs } from "react-native-size-matters";
 import BackButton from "../components/BackButton";
 import UserImage from "../components/UserImage";
 import SocialSection from "../components/SocialSection";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import Entypo from '@expo/vector-icons/Entypo';
+import { Entypo, FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 
 const ContactUsScreen = () => {
   return (
@@ -21,10 +19,22 @@ const ContactUsScreen = () => {
           icon={<FontAwesome name="whatsapp" size={s(27)} color="#178AD9" />}
           title="WhatsApp"
         />
-        <SocialSection icon={<FontAwesome6 name="xmark" size={27} color="#178AD9" />} title="X" />
-        <SocialSection icon={<Entypo name="instagram" size={27} color="#178AD9" />} title="Instagram" />
-        <SocialSection icon={<FontAwesome name="snapchat-ghost" size={27} color="#178AD9" />} title="Snapchat" />
-        <SocialSection icon={<FontAwesome6 name="tiktok" size={27} color="#178AD9" />} title="Tik Tok" />
+        <SocialSection
+          icon={<FontAwesome6 name="xmark" size={27} color="#178AD9" />}
+          title="X"
+        />
+        <SocialSection
+          icon={<Entypo name="instagram" size={27} color="#178AD9" />}
+          title="Instagram"
+        />
+        <SocialSection
+          icon={<FontAwesome name="snapchat-ghost" size={27} color="#178AD9" />}
+          title="Snapchat"
+        />
+        <SocialSection
+          icon={<FontAwesome6 name="tiktok" size={27} color="#178AD9" />}
+          title="Tik Tok"
+        />
       </View>
     </View>
   );

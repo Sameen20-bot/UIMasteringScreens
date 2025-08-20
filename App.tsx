@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import ContactUsScreen from "./src/screens/ContactUsScreen";
+import PaymentScreen from "./src/screens/PaymentScreen";
 
 export default function App() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ContactUsScreen />
+      <PaymentScreen />
     </SafeAreaView>
   );
 }
