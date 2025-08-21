@@ -1,13 +1,44 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { s, vs } from "react-native-size-matters";
-import Feather from '@expo/vector-icons/Feather';
+import Feather from "@expo/vector-icons/Feather";
+import { FC, ReactNode, useState } from "react";
 
-const CustomField = ({secure, label,icon, icon2}) => {
+interface FieldTypes {
+  secure?: boolean;
+  label: string;
+  icon: ReactNode;
+  icon2: ReactNode;
+  value: any;
+  onChangeText: any;
+}
+
+const CustomField: FC<FieldTypes> = ({
+  secure,
+  label,
+  icon,
+  icon2,
+  value,
+  onChangeText,
+}) => {
   return (
     <View style={styles.container}>
       {icon}
-      <TextInput placeholder={label} placeholderTextColor={"#676767"} style={styles.textinput} secureTextEntry={secure}/>
-      {icon2}
+      <TextInput
+        placeholder={label}
+        placeholderTextColor={"#676767"}
+        style={styles.textinput}
+        secureTextEntry={secure}
+        value={value}
+        onChangeText={onChangeText}
+      />
+      <TouchableOpacity>{icon2}</TouchableOpacity>
     </View>
   );
 };
@@ -22,7 +53,6 @@ const styles = StyleSheet.create({
     borderWidth: s(1),
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: s(30),
   },
   textinput: {
     fontSize: s(15),

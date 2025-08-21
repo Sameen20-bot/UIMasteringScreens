@@ -2,13 +2,26 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { s, vs } from "react-native-size-matters";
 import CustomField from "../components/CustomField";
 import { Entypo, FontAwesome, Feather } from "@expo/vector-icons/";
+import LoginButton from "../components/LoginButton";
+import { useState } from "react";
+import LoginsSocials from "../components/LoginsSocials";
 
 const LogInScreen = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInput = (names: string, values: any) => {
+    setData({ ...data, [names]: values });
+  };
   return (
     <View style={{ paddingHorizontal: s(32) }}>
       <Text style={styles.title}>Welcome Back!</Text>
       <CustomField
         label={"Username or Email"}
+        value={data.email}
+        onChangeText={(text: string) => handleInput("email", text)}
         icon={
           <FontAwesome
             name="user"
@@ -18,9 +31,12 @@ const LogInScreen = () => {
           />
         }
       />
+      <View style={{ marginBottom: s(30) }} />
       <CustomField
         secure={true}
         label={"Password"}
+        onChangeText={(text: string) => handleInput("password", text)}
+        value={data.password}
         icon={
           <Entypo
             name="lock"
@@ -34,21 +50,21 @@ const LogInScreen = () => {
             name="eye"
             size={24}
             color="#676767"
-            style={{ position: "absolute", right: 15 }}
+            style={{ position: "relative", left: 170 }}
           />
         }
       />
-      <TouchableOpacity
-        style={{
-          position: "absolute",
-          bottom: s(-3),
-          right: s(20),
-        }}
-      >
-        <Text style={{ color: "#F83758", fontSize: s(14), fontWeight: "400" }}>
-          Forgot Password?
-        </Text>
-      </TouchableOpacity>
+      <View style={{ alignItems: "flex-end", marginTop: s(10) }}>
+        <TouchableOpacity>
+          <Text
+            style={{ color: "#F83758", fontSize: s(14), fontWeight: "400" }}
+          >
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <LoginButton />
+      <LoginsSocials />
     </View>
   );
 };
