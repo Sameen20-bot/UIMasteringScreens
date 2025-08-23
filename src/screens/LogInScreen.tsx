@@ -63,7 +63,7 @@ const LogInScreen = () => {
           </Text>
         </TouchableOpacity>
       </View>
-      <LoginButton />
+      <LoginButton title={"Login"}/>
       <LoginsSocials />
     </View>
   );

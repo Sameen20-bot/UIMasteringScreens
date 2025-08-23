@@ -1,11 +1,16 @@
 import { StyleSheet, TouchableOpacity} from "react-native";
 import { s } from "react-native-size-matters";
 import Entypo from "@expo/vector-icons/Entypo";
+import { FC } from "react";
 
-const BackButton = () => {
+interface BackBtnTypes{
+  icon: any,
+}
+
+const BackButton:FC<BackBtnTypes> = ({icon}) => {
   return (
     <TouchableOpacity style={styles.backBtn}>
-      <Entypo name="chevron-left" size={s(20)} color="black" />
+      {icon}
     </TouchableOpacity>
   );
 };

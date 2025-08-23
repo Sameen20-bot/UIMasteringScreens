@@ -1,11 +1,16 @@
+import { FC } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { s, vs } from "react-native-size-matters";
 
-const LoginButton = () => {
+interface LoginBtnType{
+  title: string,
+}
+
+const LoginButton: FC<LoginBtnType> = ({title}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <Text style={{ fontSize: s(20), fontWeight: "600", color: "white" }}>
-        Login
+        {title}
       </Text>
     </TouchableOpacity>
   );

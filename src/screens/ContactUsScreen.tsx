@@ -9,7 +9,9 @@ const ContactUsScreen = () => {
   return (
     <View style={{ marginTop: s(50), paddingHorizontal: s(17) }}>
       <View style={styles.container}>
-        <BackButton />
+        <BackButton
+          icon={<Entypo name="chevron-left" size={s(20)} color="black" />}
+        />
         <UserImage />
       </View>
       <Text style={styles.contactTitle}>Contact Us</Text>
