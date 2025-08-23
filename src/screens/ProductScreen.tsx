@@ -1,10 +1,18 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { s, vs } from "react-native-size-matters";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import EvilIcons from "@expo/vector-icons/EvilIcons";
 import BackButton from "../components/BackButton";
 import { HandIcon } from "../assets/Icons";
 import SalesCard from "../components/SalesCard";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const ProductScreen = () => {
   return (
@@ -29,9 +37,15 @@ const ProductScreen = () => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ gap: s(20), paddingHorizontal: s(17) }}
       >
-        <SalesCard bgColor={"#F17547"} bg2Color={"white"}  color={"#F17547"}/>
-        <SalesCard bgColor={"#1383F1"} bg2Color={"#50D63B"}  color={"white"}/>
+        <SalesCard bgColor={"#F17547"} bg2Color={"white"} color={"#F17547"} />
+        <SalesCard bgColor={"#1383F1"} bg2Color={"#50D63B"} color={"white"} />
       </ScrollView>
+      <View style={[styles.container, {marginTop: s(25)}]}>
+        <Text style={styles.categoryText}>Top Categories</Text>
+        <TouchableOpacity>
+          <Text style={styles.seeAllText}>See All</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -41,6 +55,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: s(17),
+    alignItems: "center",
   },
   title: {
     fontSize: s(24),
@@ -52,5 +67,15 @@ const styles = StyleSheet.create({
     color: "#51515180",
     fontSize: s(16),
     fontWeight: "600",
+  },
+  categoryText: {
+    color: "black",
+    fontSize: s(20),
+    fontWeight: "600",
+  },
+  seeAllText: {
+    color: "#F17547",
+    fontWeight: "500",
+    fontSize: s(16),
   },
 });
